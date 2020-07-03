@@ -1,6 +1,6 @@
 {
   "name": "plain-tag",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A noop/plain JS template literal tag",
   "main": "./cjs/index.js",
   "scripts": {
@@ -13,7 +13,12 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc node test/index.js"
   },
-  "keywords": ["noop", "template", "literal", "tag"],
+  "keywords": [
+    "noop",
+    "template",
+    "literal",
+    "tag"
+  ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
