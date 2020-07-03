@@ -1,0 +1,1 @@
+self.noopTag=function(n){"use strict";return n.default=function(n){for(var t=n[0],r=1,e=arguments.length;r<e;r++)t+=arguments[r]+n[r];return t},n}({}).default;
