@@ -35,7 +35,7 @@ fake: 4.578ms
 noop: 10.347ms
 ```
 
-THe gist of this module fits into 89 bytes before compression.
+The gist of this module fits into 89 bytes before compression.
 
 ```js
 function(b){for(var c=b[0],a=1,d=arguments.length;a<d;a++)c+=arguments[a]+b[a];return c}
