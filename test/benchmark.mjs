@@ -1,6 +1,9 @@
-const plain = require('../cjs');
-const fake = require('fake-tag');
-const noop = require('noop-tag');
+import plain from '../esm/index.js';
+import fake from 'fake-tag';
+import noop from 'noop-tag';
+
+const { raw: $ } = String;
+const std = (raw, ...values) => $({ raw }, ...values);
 
 console.assert(
   plain`1${2}3` === fake`1${2}3` &&
@@ -23,7 +26,9 @@ const benchmark = (tag, name = '') => {
 benchmark(plain);
 benchmark(fake);
 benchmark(noop);
+benchmark(std);
 
 setTimeout(benchmark, 300, plain, 'plain');
 setTimeout(benchmark, 600, fake, 'fake');
 setTimeout(benchmark, 900, noop, 'noop');
+setTimeout(benchmark, 1200, noop, 'std');

@@ -10,8 +10,29 @@
     '../esm/index.js' :
     'https://unpkg.com/noop-tag?module'
   )
-  .then((module) => {
-    console.log(module);
+  .then(({default: plain}) => {
+
+const { raw: $ } = String;
+const std = (raw, ...values) => $({ raw }, ...values);
+
+const benchmark = (tag, name = '') => {
+  if (name)
+    console.time(name);
+  const result = [];
+  for (let i = 0; i < 10000; i++)
+    result.push(tag`test ${i} for ${name}!`);
+  if (name)
+    console.timeEnd(name);
+  return result;
+};
+
+// warmup
+benchmark(plain);
+benchmark(std);
+
+setTimeout(benchmark, 300, plain, 'plain');
+setTimeout(benchmark, 600, std, 'std');
+
   });
   </script>
 </head>
